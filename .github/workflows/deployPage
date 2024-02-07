@@ -1,0 +1,35 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main # Hier kannst du den Branch ändern, der getriggert werden soll
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Vite Project
+      run: npm run build
+
+    - name: Deploy to Branch
+      run: |
+        git config --global user.email "github-actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git branch -D gh-pages || true
+        git checkout -b gh-pages
+        git add -f dist
+        git commit -m "Deploy Vite build to gh-pages"
+        git push origin gh-pages --force
