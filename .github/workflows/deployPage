@@ -26,8 +26,6 @@ jobs:
 
     - name: Deploy to Branch
       run: |
-        git config --global user.email "github-actions@github.com"
-        git config --global user.name "GitHub Actions"
         git branch -D gh-pages || true
         git checkout -b gh-pages
         git add -f dist
