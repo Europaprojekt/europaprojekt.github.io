@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # Hier kannst du den Branch ändern, der getriggert werden soll
+      - main
 
 jobs:
   build:
