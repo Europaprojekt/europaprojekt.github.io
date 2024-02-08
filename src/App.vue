@@ -1,47 +1,54 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script lang="ts" setup>
+
+import { ref } from "vue"
+
+var currentPage = ref("home")
+
+
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <header class="App__header">
+        <h1>Europaprojekt</h1>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+    <main class="App__main">
+        <img src="/euBackground.jpg" class="App__bgImg" alt="Picture of multiple flags of the european union">
+    </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<style lang="scss">
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+    .App {
+
+        &__header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: white;
+            width: 100%;
+            height: 100px;
+
+            color: purple;
+        }
+
+        &__main {
+            margin-block-start: 100px;
+        }
+
+        &__bgImg {
+            height: auto;
+            max-height: calc(100dvh - 100px);
+            width: 100%;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 }
 </style>
