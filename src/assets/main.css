@@ -1,14 +1,41 @@
-#app {
-    width: 100%;
-    height: 100%;
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url('public/fonts/JetBrainsMono-Regular.ttf') format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("public/fonts/JetBrainsMono-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("public/fonts/JetBrainsMono-BoldItalic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: bold;
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("public/fonts/JetBrainsMono-Italic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: normal;
 }
 
 body {
     background: slategray;
     margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
+}
+
+html {
+    font-family: "JetBrains Mono", sans-serif;
+}
+
+h1 {
 }
 
 img {
