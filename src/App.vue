@@ -21,7 +21,7 @@ const pages: string[] = [
     </header>
 
     <main class="App__main">
-        <img src="/euBackground.jpg" class="App__bgImg" alt="Picture of multiple flags of the european union">
+        <img src="/euBackground.jpg" loading="lazy" class="App__bgImg" alt="Picture of multiple flags of the european union">
     </main>
 </template>
 
