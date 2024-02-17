@@ -10,6 +10,7 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "pinia": "^2.1.7",
     "sass": "^1.70.0",
     "vue": "^3.4.15"
   },

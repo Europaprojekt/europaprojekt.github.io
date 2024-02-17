@@ -1,12 +1,10 @@
 <script lang="ts" setup>
 
-import { ref } from "vue"
+import { ref, computed } from "vue"
+import { pagesStore } from "./storages";
 
-var currentPage = ref("Home")
-
-const pages: string[] = [
-    "Home", "Link2", "Link3", "Link4", "Link5",
-]
+const pages = pagesStore()
+const page = computed(() => pages.page())
 
 </script>
 
@@ -14,26 +12,29 @@ const pages: string[] = [
     <header class="App__header">
         <h1>Europaprojekt</h1>
         <nav>
-            <a v-for="it in pages" @click="currentPage = it" class="App__navEntry">
-                {{ it }}
+            <a
+                v-for="it in pages.all"
+                @click="pages.setTo(it.name)"
+                class="App__navEntry"
+                :class="pages.current == it.name ? 'App__navEntry--active' : ''"
+            >
+                {{ it.name }}
             </a>
         </nav>
     </header>
 
     <main class="App__main">
-        <img src="/euBackground.jpg" loading="lazy" class="App__bgImg" alt="Picture of multiple flags of the european union">
+        <page/>
     </main>
 </template>
 
 <style lang="scss">
 
     .App {
-        $headerHeight: min(max(80px, 12dvh), 140px);
-        $myBlue: #0042a0;
-        $bgBlack: #222222;
-        $darkBlack: #1c1c1c;
+        @import "assets/variables";
 
         &__header {
+            z-index: 9000;
             position: fixed;
             display: flex;
             justify-content: space-between;
@@ -63,9 +64,24 @@ const pages: string[] = [
 
                     background: $darkBlack;
                     color: aliceblue;
-                    transition: background-color .1s;
-                    &:hover {
-                        background: $myBlue;
+                    transition: background-color .3s;
+                    @media (hover: hover) {
+                        &:hover {
+                            background: $myBlue;
+                        }
+                        &:active {
+                            background: $myYellow;
+                        }
+                    }
+                    @media (hover: none) {
+                        &:active {
+                            background: $myBlue;
+                        }
+                    }
+
+                    &--active {
+                        font-weight: bold;
+                        color: $myYellow;
                     }
                 }
 
@@ -81,15 +97,6 @@ const pages: string[] = [
 
         &__main {
             margin-block-start: $headerHeight;
-        }
-
-        &__bgImg {
-            height: calc(100dvh - $headerHeight);
-            //height: auto;
-            //max-height: calc(100dvh - $headerHeight);
-            width: 100%;
-            object-position: center;
-            object-fit: cover;
         }
     }
 
