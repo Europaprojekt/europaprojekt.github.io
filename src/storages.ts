@@ -1,13 +1,15 @@
 import { defineStore } from "pinia"
 // @ts-ignore dunno Y
 import HomePage from "./components/HomePage.vue";
+// @ts-ignore dunno Y
+import Link2 from "./components/Link2.vue";
 
 export const pagesStore = defineStore("pages", {
     state: () => ({ currentPage: "Home" }),
     getters: {
         all: (state) => [
             {name: "Home", link: HomePage},
-            {name: "Link2", link: {}},
+            {name: "Link2", link: Link2},
             {name: "Link3", link: {}},
             {name: "Link4", link: {}},
             {name: "Link5", link: {}}

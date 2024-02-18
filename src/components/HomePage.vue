@@ -54,7 +54,7 @@
             width: 100%;
             object-position: center;
             object-fit: cover;
-            @media (width <= $smallDeviceLimitIncl) {  // fahnen weiter oben
+            @media (max-width: $smallDeviceLimitIncl) {  // fahnen weiter oben
                 height: 120%;
                 object-position: bottom;
             }
@@ -68,16 +68,20 @@
             align-items: center;
             justify-content: center;
 
-            @media (width <= $smallDeviceLimitIncl) {
-                height: 30%;
-                width: 100%;
-                margin-block-end: 15dvh;
-            }
-            @media (width > $smallDeviceLimitIncl) {
+            // for large:
+            @media (min-width: calc($smallDeviceLimitIncl + 1px)) {
                 margin-inline-end: 5dvw;
                 align-self: end;
                 height: 100%;
                 width: 30%;
+            }
+
+            // for small:
+            @media (max-width: $smallDeviceLimitIncl) {
+                height: 30%;
+                width: 100%;
+                margin-inline-end: unset;
+                margin-block-end: 15dvh;
             }
         }
 

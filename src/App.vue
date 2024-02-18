@@ -49,8 +49,8 @@ const page = computed(() => pages.page())
                 min-height: 40px;
                 display: flex;
                 gap: 2px;
-                align-content: space-evenly;
                 align-items: center;
+                justify-content: space-evenly;
                 background: $bgBlack;
 
                 & .App__navEntry {
@@ -100,8 +100,4 @@ const page = computed(() => pages.page())
         }
     }
 
-
-@media (min-width: 1024px) {
-
-}
 </style>
