@@ -46,7 +46,7 @@ const page = computed(() => pages.page())
             height: $headerHeight;
 
             & nav {
-                min-height: 40px;
+                min-height: max(34px, 4.5dvh);
                 display: flex;
                 gap: 2px;
                 align-items: center;
@@ -62,6 +62,7 @@ const page = computed(() => pages.page())
                     justify-content: center;
                     align-items: center;
 
+                    font-size: max(14px, 1.8dvh);
                     background: $darkBlack;
                     color: aliceblue;
                     transition: background-color .3s;
@@ -89,9 +90,10 @@ const page = computed(() => pages.page())
 
             & h1 {
                 margin: 0;
-                font-size: min(8dvw, calc($headerHeight * .5));
+                margin-block: auto;
+                font-size: min(10dvw, calc($headerHeight * .44));
                 color: $myBlue;
-                align-self: start;
+                align-self: center;
             }
         }
 

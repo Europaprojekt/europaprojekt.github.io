@@ -83,6 +83,13 @@
                 margin-inline-end: unset;
                 margin-block-end: 15dvh;
             }
+
+            & a {
+                cursor: pointer;
+                padding: 14px;
+                background: #00000088;
+            }
+
         }
 
 
@@ -94,7 +101,7 @@
             align-items: center;
 
             & span {
-                font-size: 20dvh;
+                font-size: 18dvh;
             }
         }
     }
