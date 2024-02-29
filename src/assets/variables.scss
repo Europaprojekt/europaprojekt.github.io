@@ -1,13 +1,14 @@
 
-$smallDeviceLimitIncl: 600px;
+$smallDeviceMaxIncl: 700px;
 
 $headerHeight: min(max(70px, 10dvh), 140px);
 $contentHeight: calc(100dvh - $headerHeight);
 
-$largePFontSize: max(14px, 1.8dvh);
+$largePFontSize: max(14px, min(1.6dvw, 1.8dvh));
 
 $myBlue: #0042a0;
 $myYellow: #ffee00;
 $bgBlack: #222222;
 $darkBlack: #1c1c1c;
+$darkDarkBlack: #101010;
 

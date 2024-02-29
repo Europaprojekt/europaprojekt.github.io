@@ -54,7 +54,7 @@
             width: 100%;
             object-position: center;
             object-fit: cover;
-            @media (max-width: $smallDeviceLimitIncl) {  // fahnen weiter oben
+            @media (max-width: $smallDeviceMaxIncl) {  // fahnen weiter oben
                 height: 120%;
                 object-position: bottom;
             }
@@ -69,7 +69,7 @@
             justify-content: center;
 
             // for large:
-            @media (min-width: calc($smallDeviceLimitIncl + 1px)) {
+            @media (min-width: calc($smallDeviceMaxIncl + 1px)) {
                 margin-inline-end: 5dvw;
                 align-self: end;
                 height: 100%;
@@ -77,7 +77,7 @@
             }
 
             // for small:
-            @media (max-width: $smallDeviceLimitIncl) {
+            @media (max-width: $smallDeviceMaxIncl) {
                 height: 30%;
                 width: 100%;
                 margin-inline-end: unset;

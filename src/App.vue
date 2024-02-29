@@ -2,9 +2,15 @@
 
 import { ref, computed } from "vue"
 import { pagesStore } from "./storages";
+import X from "../public/x.vue";
+import Menu from "../public/menu.vue";
+
+function isInWidth(width: number): boolean { return  window.matchMedia('(max-width: ' + width + 'px)').matches }
 
 const pages = pagesStore()
 const page = computed(() => pages.page())
+
+var menuOpen = ref(false)
 
 </script>
 
@@ -23,6 +29,10 @@ const page = computed(() => pages.page())
                 {{ it.name }}
             </a>
         </nav>
+        <div @click="menuOpen = !menuOpen" class="App__menuIconContainer">
+            <Menu v-if="!menuOpen"/>
+            <X v-else/>
+        </div>
     </header>
 
     <main class="App__main">
@@ -40,6 +50,7 @@ const page = computed(() => pages.page())
             position: fixed;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             flex-direction: row;
             top: 0;
             left: 0;
@@ -48,6 +59,11 @@ const page = computed(() => pages.page())
             height: $headerHeight;
 
             & nav {
+                @media (max-width: 900px) {
+                    visibility: hidden;
+                    position: absolute;
+                }
+
                 margin-inline-end: 3dvw;
                 min-height: max(34px, 4.5dvh);
                 display: flex;
@@ -98,7 +114,17 @@ const page = computed(() => pages.page())
                 margin-block: auto;
                 font-size: min(10dvw, calc($headerHeight * .5)); // 10dvw has impact on portrait on mobile
                 color: $myBlue;
-                align-self: center;
+            }
+        }
+        &__menuIconContainer {
+            @media (min-width: 901px) {
+                visibility: hidden;
+                position: absolute;
+            }
+            margin-inline-end: calc($headerHeight * .25);
+            & svg {
+                fill: $darkDarkBlack;
+                height: calc($headerHeight * .5);
             }
         }
 
