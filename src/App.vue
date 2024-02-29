@@ -29,11 +29,21 @@ var menuOpen = ref(false)
                 {{ it.name }}
             </a>
         </nav>
-        <div @click="menuOpen = !menuOpen" class="App__menuIconContainer">
-            <Menu v-if="!menuOpen"/>
-            <X v-else/>
-        </div>
     </header>
+
+    <div @click="menuOpen = !menuOpen" class="App__menuIconContainer">
+        <Menu v-if="!menuOpen"/>
+        <X v-else/>
+    </div>
+    <div v-if="menuOpen" class="App__menu">
+        <a
+            v-for="it in pages.all"
+            @click="pages.setTo(it.name); menuOpen = !menuOpen"
+            :class="pages.current == it.name ? 'App__menuLink--active' : ''"
+        >
+            {{ it.name }}
+        </a>
+    </div>
 
     <main class="App__main">
         <page/>
@@ -116,15 +126,53 @@ var menuOpen = ref(false)
                 color: $myBlue;
             }
         }
+
         &__menuIconContainer {
             @media (min-width: 901px) {
                 visibility: hidden;
                 position: absolute;
             }
-            margin-inline-end: calc($headerHeight * .25);
+            position: fixed;
+            top: calc($headerHeight * .25);
+            left: calc(100% - $headerHeight * .75);
+            z-index: 8001;
             & svg {
                 fill: $darkDarkBlack;
                 height: calc($headerHeight * .5);
+            }
+        }
+        &__menu {
+            @media (min-width: 901px) {
+                visibility: hidden;
+                position: absolute;
+            }
+            position: fixed;
+            z-index: 8000;
+            top: 0; left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #222222e2;
+            font-size: max(4dvw, 4dvh);
+            font-weight: bold;
+            line-height: max(6dvw, 8dvh);
+
+            & a {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                transition: font-weight .1s;
+                cursor: pointer;
+                &:hover {
+                    font-weight: 900;
+                }
+            }
+
+            &Link--active {
+                color: darken($myYellow, 10%);
             }
         }
 
