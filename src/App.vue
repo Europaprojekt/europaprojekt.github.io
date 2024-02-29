@@ -10,7 +10,9 @@ const page = computed(() => pages.page())
 
 <template>
     <header class="App__header">
-        <h1>Europaprojekt</h1>
+        <h1
+            @click="pages.setTo('Home')"
+        >Europaprojekt</h1>
         <nav>
             <a
                 v-for="it in pages.all"
@@ -34,11 +36,11 @@ const page = computed(() => pages.page())
         @import "assets/variables";
 
         &__header {
-            z-index: 9000;
+            z-index: 7000;
             position: fixed;
             display: flex;
             justify-content: space-between;
-            flex-direction: column;
+            flex-direction: row;
             top: 0;
             left: 0;
             background: $bgBlack;
@@ -46,9 +48,9 @@ const page = computed(() => pages.page())
             height: $headerHeight;
 
             & nav {
+                margin-inline-end: 3dvw;
                 min-height: max(34px, 4.5dvh);
                 display: flex;
-                gap: 2px;
                 align-items: center;
                 justify-content: space-evenly;
                 background: $bgBlack;
@@ -56,27 +58,29 @@ const page = computed(() => pages.page())
                 & .App__navEntry {
                     cursor: pointer;
                     user-select: none;
-                    width: 100%;
-                    height: calc(100% - 2px);
+                    width: fit-content;
+                    height: 95%;
+                    padding-inline: max(12px, 1dvw);
                     display: flex;
                     justify-content: center;
                     align-items: center;
 
-                    font-size: max(14px, 1.8dvh);
-                    background: $darkBlack;
+                    font-size: $largePFontSize;
+                    //background: $darkBlack;
                     color: aliceblue;
-                    transition: background-color .3s;
+                    transition: background-color .3s, font-weight .25s;
                     @media (hover: hover) {
                         &:hover {
-                            background: $myBlue;
+                            font-weight: 900;
+                            //background: rgba($myBlue, .33);
                         }
                         &:active {
-                            background: $myYellow;
+                            //background: $myYellow;
                         }
                     }
                     @media (hover: none) {
                         &:active {
-                            background: $myBlue;
+                            //background: $myBlue;
                         }
                     }
 
@@ -89,9 +93,10 @@ const page = computed(() => pages.page())
             }
 
             & h1 {
+                user-select: none;
                 margin: 0;
                 margin-block: auto;
-                font-size: min(10dvw, calc($headerHeight * .44));
+                font-size: min(10dvw, calc($headerHeight * .5)); // 10dvw has impact on portrait on mobile
                 color: $myBlue;
                 align-self: center;
             }

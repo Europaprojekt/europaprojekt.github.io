@@ -11,8 +11,8 @@ export const pagesStore = defineStore("pages", {
             {name: "Home", link: HomePage},
             {name: "Link2", link: Link2},
             {name: "Link3", link: {}},
-            {name: "Link4", link: {}},
-            {name: "Link5", link: {}}
+            {name: "longName: Link4", link: {}},
+            {name: "AnotherLink5", link: {}}
         ],
         current: (state) => state.currentPage
     },

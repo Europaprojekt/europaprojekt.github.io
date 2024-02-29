@@ -86,8 +86,12 @@
 
             & a {
                 cursor: pointer;
+                user-select: none;
                 padding: 14px;
-                background: #00000088;
+                transition: background-color .4s;
+                &:hover {
+                    background: #00000088;
+                }
             }
 
         }

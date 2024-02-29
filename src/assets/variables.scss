@@ -1,8 +1,10 @@
 
 $smallDeviceLimitIncl: 600px;
 
-$headerHeight: min(max(80px, 12dvh), 140px);
+$headerHeight: min(max(70px, 10dvh), 140px);
 $contentHeight: calc(100dvh - $headerHeight);
+
+$largePFontSize: max(14px, 1.8dvh);
 
 $myBlue: #0042a0;
 $myYellow: #ffee00;
