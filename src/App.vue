@@ -46,6 +46,7 @@ var menuOpen = ref(false)
     </div>
 
     <main class="App__main">
+<!--        <RouterView/>-->
         <page/>
     </main>
 </template>
