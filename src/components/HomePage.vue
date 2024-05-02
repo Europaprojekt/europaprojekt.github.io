@@ -1,8 +1,5 @@
 <script setup lang="ts">
 
-    import { pagesStore } from "../storages"; // checking doesn't work shorthanded
-
-    const pages = pagesStore()
 
 </script>
 
