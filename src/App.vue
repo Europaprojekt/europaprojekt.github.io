@@ -1,33 +1,44 @@
 <script lang="ts" setup>
 
-import { ref, computed } from "vue"
-import { pagesStore } from "./storages";
-import X from "../public/x.vue";
-import Menu from "../public/menu.vue";
+    import {ref} from "vue"
+    import X from "../public/x.vue";
+    import Menu from "../public/menu.vue";
+    import {useRouter} from 'vue-router'
+    import Link3 from "@/components/Link3.vue";
 
-function isInWidth(width: number): boolean { return  window.matchMedia('(max-width: ' + width + 'px)').matches }
+    function isInWidth(width: number): boolean { return  window.matchMedia('(max-width: ' + width + 'px)').matches }
 
-const pages = pagesStore()
-const page = computed(() => pages.page())
+// const pages = pagesStore()
+// const page = computed(() => pages.page())
 
-var menuOpen = ref(false)
+    const router = useRouter()
+
+    const links = [
+        { path: '/', name: 'home' },
+        { path: '/link2', name: 'link2' },
+        { path: "/link3", name: 'Link3'},
+        { path: "/long-name-link4", name: "longName: Link4" },
+        { path: "/another-link5", name: "AnotherLink5" }
+    ]
+
+    var menuOpen = ref(false)
 
 </script>
 
 <template>
     <header class="App__header">
-        <h1
-            @click="pages.setTo('Home')"
-        >Europaprojekt</h1>
+        <router-link class="App__header__title"
+            to="/"
+        >Europaprojekt</router-link>
         <nav>
-            <a
-                v-for="it in pages.all"
-                @click="pages.setTo(it.name)"
+            <router-link
+                v-for="it in links"
                 class="App__navEntry"
-                :class="pages.current == it.name ? 'App__navEntry--active' : ''"
+                :to="it.path"
+                :class="$route.path == it.path ? 'App__navEntry--active' : ''"
             >
-                {{ it.name }}
-            </a>
+                {{it.name}}
+            </router-link>
         </nav>
     </header>
 
@@ -36,18 +47,19 @@ var menuOpen = ref(false)
         <X v-else/>
     </div>
     <div v-if="menuOpen" class="App__menu">
-        <a
-            v-for="it in pages.all"
-            @click="pages.setTo(it.name); menuOpen = !menuOpen"
-            :class="pages.current == it.name ? 'App__menuLink--active' : ''"
+        <router-link
+            v-for="it in router.getRoutes()"
+            to="{{it.name}}"
+            @click="menuOpen = !menuOpen"
+            :class="$route.name == it.name ? 'App__menuLink--active' : ''"
         >
             {{ it.name }}
-        </a>
+        </router-link>
     </div>
 
     <main class="App__main">
-<!--        <RouterView/>-->
-        <page/>
+        <RouterView/>
+<!--        <page/>-->
     </main>
 </template>
 
@@ -119,8 +131,9 @@ var menuOpen = ref(false)
 
             }
 
-            & h1 {
+            &__title {
                 user-select: none;
+                font-weight: bold;
                 margin: 0;
                 margin-block: auto;
                 font-size: min(10dvw, calc($headerHeight * .5)); // 10dvw has impact on portrait on mobile

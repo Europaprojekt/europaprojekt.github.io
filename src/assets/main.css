@@ -50,6 +50,10 @@ html {
 h1 {
 }
 
+a {
+    text-decoration: none;
+}
+
 img {
     width: 100%;
 }
