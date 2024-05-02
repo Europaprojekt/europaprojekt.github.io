@@ -11,9 +11,9 @@
     <div class="HomePage__imgContainer">
         <img src="/euBackground.jpg" loading="lazy" class="HomePage__bgImg" alt="Picture of multiple flags of the european union">
         <div class="HomePage__imgOverlay">
-            <a @click="pages.setTo('Link3')">
+            <router-link to="/link3">
                 ImportantLink (Link3)
-            </a>
+            </router-link>
         </div>
 
     </div>
@@ -91,6 +91,9 @@
                 transition: background-color .4s;
                 &:hover {
                     background: #00000088;
+                }
+                &:visited {
+                    color: aliceblue;
                 }
             }
 
