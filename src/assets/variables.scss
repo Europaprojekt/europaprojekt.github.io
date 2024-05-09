@@ -1,4 +1,9 @@
 
+
+@function inRange($value, $min, $max) {
+    @return min($max, max($value, $min));
+}
+
 $smallDeviceMaxIncl: 700px;
 
 $headerHeight: min(max(70px, 10dvh), 140px);

@@ -41,3 +41,15 @@ export const useCounterStore = defineStore('counter', {
         },
     },
 })
+
+export const useAccentStore = defineStore('accent', {
+    state: () => ({ accent: "rgb(255,255,255)", transparency: "17%" }),
+    actions: {
+        setAccent(accent: string) {
+            this.accent = accent
+        },
+        setTransparency(it: string) {
+            this.transparency = it
+        }
+    }
+})

@@ -52,6 +52,13 @@ h1 {
 
 a {
     text-decoration: none;
+    color: black;
+}
+a:active {
+    color: black;
+}
+a:visited {
+    color: black;
 }
 
 img {

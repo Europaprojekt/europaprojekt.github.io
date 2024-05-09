@@ -1,8 +1,11 @@
 <script setup lang="ts">
 
+import MainHeader from "@/components/MainHeader.vue";
+
 </script>
 
 <template>
+
     <div class="Link2__main">
         @media (min-width: 600px)
         <span class="Link2__false">false</span>
@@ -11,7 +14,7 @@
     </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
     @import "../assets/variables";
 .Link2 {
     &__main {
