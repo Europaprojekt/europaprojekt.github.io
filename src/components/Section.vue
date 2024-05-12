@@ -1,8 +1,7 @@
 <script setup lang="ts">
 
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useIntersectionObserver } from '@vueuse/core'
-import { vIntersectionObserver } from '@vueuse/components'
+import {onMounted, onUnmounted, ref} from 'vue'
+import {useIntersectionObserver} from '@vueuse/core'
 import Entry from "@/components/Entry.vue";
 
 const props = defineProps({
@@ -41,8 +40,8 @@ onMounted(() => {
         target.value,
         handleIntersection,
         {
-            // rootMargin: '-300px', // Offset von 100px
-            threshold: 1 // 50% des Elements müssen sichtbar sein
+            rootMargin: '-200px', // Offset von 100px
+            threshold: .0 // 50% des Elements müssen sichtbar sein
         }
     )
 })
@@ -76,7 +75,7 @@ onUnmounted(() => {
         height: 100%;
 
         & .entry {
-            background-color: color-mix(in srgb, v-bind(theme) 71%, transparent);
+            background-color: color-mix(in srgb, v-bind(theme) 90%, transparent);
             border-color: color-mix(in srgb, v-bind(theme) 100%, transparent);
         }
 

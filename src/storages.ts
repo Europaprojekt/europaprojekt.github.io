@@ -1,17 +1,12 @@
-import { defineStore } from "pinia"
-// @ts-ignore dunno Y
-import HomePage from "./components/HomePage.vue";
-// @ts-ignore dunno Y
-import Link2 from "./components/Link2.vue";
-import Link3 from "./components/Link3.vue";
+import {defineStore} from "pinia"
 
 export const pagesStore = defineStore("pages", {
     state: () => ({ currentPage: "Home" }),
     getters: {
         all: (state) => [
-            {name: "Home", link: HomePage},
-            {name: "Link2", link: Link2},
-            {name: "Link3", link: Link3},
+            {name: "Home", link: {}},
+            {name: "Link2", link: {}},
+            {name: "Link3", link: {}},
             {name: "longName: Link4", link: {}},
             {name: "AnotherLink5", link: {}}
         ],
@@ -43,7 +38,7 @@ export const useCounterStore = defineStore('counter', {
 })
 
 export const useAccentStore = defineStore('accent', {
-    state: () => ({ accent: "rgb(255,255,255)", transparency: "17%" }),
+    state: () => ({ accent: "rgba(0,0,0,0)", transparency: "17%" }),
     actions: {
         setAccent(accent: string) {
             this.accent = accent

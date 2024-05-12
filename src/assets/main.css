@@ -51,7 +51,6 @@ h1 {
 }
 
 a {
-    text-decoration: none;
     color: black;
 }
 a:active {
@@ -63,4 +62,8 @@ a:visited {
 
 img {
     width: 100%;
+}
+
+b.extra {
+    font-weight: 900;
 }

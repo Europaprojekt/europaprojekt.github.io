@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 
-    import {ref} from "vue"
-    import {useRouter} from 'vue-router'
-    import MainHeader from "@/components/MainHeader.vue";
-    import Timeline from "@/components/Timeline.vue";
+import {ref} from "vue"
+import {useRouter} from 'vue-router'
+import MainHeader from "@/components/MainHeader.vue";
+import Footer from "@/components/Footer.vue";
 
-    const accent = ref("white")
+const accent = ref("white")
 
     const router = useRouter()
 
@@ -27,24 +27,24 @@
 
         <RouterView/>
 
+        <Footer/>
 
 
 
-
-        <div class="app__more">
-            <span>m</span>
-            <span>o</span>
-            <span>r</span>
-            <span>e</span>
-            <span>-</span>
-            <span>c</span>
-            <span>o</span>
-            <span>n</span>
-            <span>t</span>
-            <span>e</span>
-            <span>n</span>
-            <span>t</span>
-        </div>
+<!--        <div class="app__more">-->
+<!--            <span>m</span>-->
+<!--            <span>o</span>-->
+<!--            <span>r</span>-->
+<!--            <span>e</span>-->
+<!--            <span>-</span>-->
+<!--            <span>c</span>-->
+<!--            <span>o</span>-->
+<!--            <span>n</span>-->
+<!--            <span>t</span>-->
+<!--            <span>e</span>-->
+<!--            <span>n</span>-->
+<!--            <span>t</span>-->
+<!--        </div>-->
 
     </div>
 
@@ -58,6 +58,7 @@
         &__container {
             display: flex;
             flex-direction: column;
+            min-height: 100dvh;
         }
 
 

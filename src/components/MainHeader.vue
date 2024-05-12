@@ -14,12 +14,12 @@ const accent = useAccentStore()
 </script>
 
 <template>
-    <header class="app__header">
+    <header class="app__header" :style="$route.fullPath === '/' ? {} : { backgroundColor: '#00000000' }">
         <div class="app__mainHeader">
-            <router-link to="/">Europas Geschichte</router-link>
+            <router-link to="/">Europa in einem Zeitstrahl</router-link>
         </div>
         <nav class="app__navbar">
-            <router-link to="/link2">Link2</router-link>
+            <router-link to="/about">About</router-link>
             <router-link to="/link2">Link2</router-link>
             <router-link to="/link2">Link2</router-link>
         </nav>
@@ -37,14 +37,20 @@ const accent = useAccentStore()
             justify-content: start;
             align-items: center;
             position: fixed;
+            top: 0;
             width: 100%;
+            max-width: 100dvw;
             min-height: inRange(8dvh, 90px, 200px);
 
             border-block-end: white 2px;
             border-bottom-style: dashed;
 
-            background-color: color-mix(in srgb, v-bind('accent.accent') 50%, transparent);
+            background-color: color-mix(in srgb, v-bind('accent.accent') 60%, transparent);
             transition: background-color .5s ease-in-out;
+
+            & a {
+                text-decoration: none;
+            }
 
         }
 
