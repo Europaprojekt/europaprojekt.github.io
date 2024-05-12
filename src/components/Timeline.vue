@@ -68,11 +68,6 @@ function onVis(it: string, j: string, k: string) {
         //padding-block-start: 20dvh;
 
 
-        &__alternate {
-            margin-block-start: auto;
-            padding: 10px;
-        }
-
         &__container {
             background-size: cover;
             background-position: center;
@@ -94,9 +89,11 @@ function onVis(it: string, j: string, k: string) {
             height: 100dvh;
 
             & .entry__positioner {
-                width: max(50dvw, 680px);
-                margin-inline-end: 60px;
-                align-self: end;
+                @media (max-width: 900px) {
+                    width: max(50dvw, 680px);
+                    margin-inline-end: 60px;
+                    align-self: end;
+                }
             }
 
             & .entry {
