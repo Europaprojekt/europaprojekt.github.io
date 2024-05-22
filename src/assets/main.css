@@ -54,10 +54,10 @@ a {
     color: black;
 }
 a:active {
-    color: black;
+    color: unset;
 }
 a:visited {
-    color: black;
+    color: unset;
 }
 
 img {

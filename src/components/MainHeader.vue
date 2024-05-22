@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {useRouter} from 'vue-router'
-import {useAccentStore} from "@/storages";
+import {useSectionStore} from "@/storages";
 
 const router = useRouter()
 
@@ -9,7 +9,7 @@ const props = defineProps({
     accent: String
 })
 
-const accent = useAccentStore()
+const section = useSectionStore()
 
 </script>
 
@@ -36,7 +36,12 @@ const accent = useAccentStore()
             flex-direction: row;
             justify-content: start;
             align-items: center;
-            position: fixed;
+            @media (min-width: 951px) {
+                position: fixed;
+            }
+            @media (max-width: 950px) {
+                position: absolute;
+            }
             top: 0;
             width: 100%;
             max-width: 100dvw;
@@ -45,7 +50,7 @@ const accent = useAccentStore()
             border-block-end: white 2px;
             border-bottom-style: dashed;
 
-            background-color: color-mix(in srgb, v-bind('accent.accent') 60%, transparent);
+            background-color: color-mix(in srgb, v-bind('section.accent') 60%, transparent);
             transition: background-color .5s ease-in-out;
 
             & a {
@@ -55,7 +60,7 @@ const accent = useAccentStore()
         }
 
         &__mainHeader {
-            font-size: 50px;
+            font-size: inRange(6dvh, 40px, 50px);
             font-weight: 900;
 
             text-shadow: 0 0 2px #ffffff;
@@ -67,7 +72,7 @@ const accent = useAccentStore()
             flex-direction: row;
             gap: 18px;
 
-            font-size: 24px;
+            font-size: inRange(3dvh, 22px, 24px);
             font-weight: 600;
             //text-shadow: 0 0 1px #ffffff;
 

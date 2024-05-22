@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {useAccentStore} from "@/storages";
+import {useSectionStore} from "@/storages";
 
 const props = defineProps({
     year: Number || String
@@ -9,7 +9,7 @@ const props = defineProps({
 
 
 const pos = Math.random() * 40 + 5 + "dvw"
-const accentStore = useAccentStore()
+const sectionStore = useSectionStore()
 
 </script>
 
@@ -33,6 +33,7 @@ const accentStore = useAccentStore()
 </template>
 
 <style lang="scss">
+@import "src/assets/variables.scss";
 
 .entry {
 
@@ -49,13 +50,14 @@ const accentStore = useAccentStore()
     &__year {
         font-weight: 900;
         font-size: 33px;
-        margin-inline-start: 42px;
+        margin-inline-start: inRange(1.7dvw, 16px, 42px);
+        margin-inline-end: calc(inRange(1.7dvw, 16px, 42px) * 0.6);  // this DOES work!!!
         max-width: 7.5dvw;
         text-shadow: 0 0 3px white;
     }
 
     &__positioner {
-        width: 42dvw;
+        width: 42dvw;//inRange(42dvw, 460px, 10000px);
         margin-inline-end: v-bind(pos);
         display: flex;
         flex-direction: column;
@@ -75,6 +77,10 @@ const accentStore = useAccentStore()
 
         font-size: 18px;
         font-weight: bold;
+        overflow: hidden;
+        @media handheld {
+            overflow: scroll;
+        }
         & b {
             font-weight: 900;
         }

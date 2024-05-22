@@ -3,6 +3,7 @@
 import {onMounted, onUnmounted, ref} from 'vue'
 import {useIntersectionObserver} from '@vueuse/core'
 import Entry from "@/components/Entry.vue";
+import { useWindowSize } from '@vueuse/core'
 
 const props = defineProps({
     background: String,
@@ -10,6 +11,7 @@ const props = defineProps({
     overlayTransparency: String,
     onVisible: Function,
     text: String,
+    infoPage: String,
 })
 
 
@@ -18,7 +20,12 @@ const target = ref(null)
 let handleIntersection = (entries, observer) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            props.onVisible(props.background, props.theme, props.overlayTransparency ? props.overlayTransparency : "17%")
+            props.onVisible(
+                props.background,
+                props.theme,
+                props.overlayTransparency ?? "17%",
+                props.infoPage ?? ""
+            )
         }
         console.log(entry)
         // Each entry describes an intersection change for one observed
@@ -35,12 +42,15 @@ let handleIntersection = (entries, observer) => {
 
 let observer = null
 
+
+const { width, height } = useWindowSize()
+
 onMounted(() => {
     observer = useIntersectionObserver(
         target.value,
         handleIntersection,
         {
-            rootMargin: '-200px', // Offset von 100px
+            rootMargin: (-height.value / 3) + "px", // Offset von 100px
             threshold: .0 // 50% des Elements müssen sichtbar sein
         }
     )
