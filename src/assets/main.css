@@ -48,6 +48,7 @@ html {
 }
 
 h1 {
+    margin-block-start: 1em;
 }
 
 a {

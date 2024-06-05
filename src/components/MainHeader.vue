@@ -16,12 +16,12 @@ const section = useSectionStore()
 <template>
     <header class="app__header" :style="$route.fullPath === '/' ? {} : { backgroundColor: '#00000000' }">
         <div class="app__mainHeader">
-            <router-link to="/">Europa in einem Zeitstrahl</router-link>
+            <router-link to="/page">Rechtsextremismus in Europa</router-link>
+<!--            <router-link to="/">Europa in einem Zeitstrahl</router-link>-->
         </div>
         <nav class="app__navbar">
+            <router-link to="/page">Home</router-link>
             <router-link to="/about">About</router-link>
-            <router-link to="/link2">Link2</router-link>
-            <router-link to="/link2">Link2</router-link>
         </nav>
     </header>
 </template>

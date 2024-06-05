@@ -7,9 +7,18 @@
 <template>
 
     <div class="about__container">
-        About page
-
-        - Phase 3: Individuelle Projektarbeit
+        <p>
+            - Teil der Projektarbeit zum Europaprojekt von Sepand Sanei, Mustafa Cetin und Rufus Sommer<br>
+        </p>
+        <p>
+            - Letzterer hat diese Website erstellt
+        </p>
+        <p>
+            - Ursprünglicher Plan: <i>Europa in einem Zeitstrahl</i> (<router-link to="/">siehe Modell</router-link> (wird auf kleinen Bildschirmen gar nicht oder fehlerhaft angezeigt))
+        </p>
+        <p>
+            - Verworfen weil es nicht genügend Spielraum für AFB3 (eigene Meinung und Weiterdenken) gab
+        </p>
 
     </div>
 

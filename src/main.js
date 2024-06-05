@@ -7,12 +7,14 @@ import { createRouter, createWebHashHistory   } from 'vue-router'
 import HomePage from "@/components/HomePage.vue";
 import Link2 from "@/components/Link2.vue";
 import About from "@/components/About.vue";
+import Final from "@/components/Final.vue";
 
 const routes = [
     { path: "/", component: HomePage },
     { path: "/about", component: About},
     { path: "/link2", component: Link2 },
     { path: "/link3", component: {}},
+    { path: "/page", component: Final }
 ]
 const router = createRouter({
     history: createWebHashHistory(),
