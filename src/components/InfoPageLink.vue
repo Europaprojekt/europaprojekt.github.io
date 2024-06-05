@@ -29,8 +29,8 @@ const sectionStore = useSectionStore()
     user-select: none;
     cursor: pointer;
 
-    text-shadow: color-mix(in srgb, v-bind('sectionStore.accent') 60%, transparent) 0 0 1dvh;
-    box-shadow: v-bind('sectionStore.accent') 0 0 max(3dvh, 24px) .7dvh inset, black 0 0 8dvh -1dvh;
+    text-shadow: color-mix(in srgb, v-bind('sectionStore.accent') 100%, transparent) 0 0 1.2dvh;
+    box-shadow: v-bind('sectionStore.accent') 0 0 max(3dvh, 24px) 1dvh inset, black 0 0 8dvh -1dvh;
 
     border-radius: 100%;
     position: fixed;
