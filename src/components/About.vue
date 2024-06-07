@@ -8,7 +8,7 @@
 
     <div class="about__container">
         <p>
-            - Teil der Projektarbeit zum Europaprojekt von Sepand Sanei, Mustafa Cetin und Rufus Sommer<br>
+            - Teil der Projektarbeit zum Europaprojekt von Sepand Sanei, Henry Kerkhoff, Mustafa Cetin und Rufus Sommer<br>
         </p>
         <p>
             - Letzterer hat diese Website erstellt

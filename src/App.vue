@@ -4,6 +4,7 @@ import {ref} from "vue"
 import {useRouter} from 'vue-router'
 import MainHeader from "@/components/MainHeader.vue";
 import Footer from "@/components/Footer.vue";
+import {useWindowSize} from '@vueuse/core'
 
 const accent = ref("white")
 
@@ -17,13 +18,15 @@ const accent = ref("white")
         { path: "/another-link5", name: "AnotherLink5" }
     ]
 
+const { width, height } = useWindowSize()
 
 </script>
 
 <template>
     <div class="app__container">
 
-        <MainHeader/>
+        <MainHeader v-if="height > 300 && width > 800"/>
+<!--        <MainHeader/>-->
 
         <RouterView/>
 

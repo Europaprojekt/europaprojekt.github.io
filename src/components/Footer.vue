@@ -44,6 +44,8 @@ const { width, height } = useWindowSize()
     .footer {
 
         &__container {
+            border-block-start: white 2px dashed;
+
             margin-block-start: auto;
 
             display: flex;

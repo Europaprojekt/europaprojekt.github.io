@@ -31,6 +31,7 @@ const section = useSectionStore()
 
     .app {
         &__header {
+            overflow: hidden;
             z-index: 1600;
             display: flex;
             flex-direction: row;
@@ -43,12 +44,10 @@ const section = useSectionStore()
                 position: absolute;
             }
             top: 0;
-            width: 100%;
-            max-width: 100dvw;
+            width: 100dvw;
             min-height: inRange(8dvh, 90px, 200px);
 
-            border-block-end: white 2px;
-            border-bottom-style: dashed;
+            border-block-end: white 2px dashed;
 
             background-color: color-mix(in srgb, v-bind('section.accent') 60%, transparent);
             transition: background-color .5s ease-in-out;

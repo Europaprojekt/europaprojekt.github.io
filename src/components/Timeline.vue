@@ -60,7 +60,7 @@ onMounted(() => {
                     Der Homo sapiens hat nun andere ansässige Menschenarten vertrieben und der <b>moderne Mensch</b> ist aus Mischungen des Homo sapiens mit anderen Arten entstanden.
                 </entry>
                 <entry year="vor ca. 70.000">
-                    Der <b>Homo sapiens</b> beginnt sich von Afrika kommend nach Europa auszubreiten.
+                    Der <b>Homo sapiens</b> (= der wissende Mensch) beginnt sich von Afrika kommend nach Europa auszubreiten.
                 </entry>
                 <entry year="vor ca. 800.000">
                     Der <b>Homo erectus</b> (= der aufrecht gehende Mensch) breitet auf der ganzen Welt, und somit auch in Europa aus.
